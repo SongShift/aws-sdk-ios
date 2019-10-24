@@ -32,7 +32,29 @@ let package = Package(
 				"AWSCore/XMLDictionary",
 				"AWSCore/XMLWriter"
 			],
-			publicHeadersPath: "AWSCore",
+			cSettings: [
+				.headerSearchPath("AWSCore/Authentication"),
+				.headerSearchPath("AWSCore/Bolts"),
+				.headerSearchPath("AWSCore/CognitoIdentity"),
+				.headerSearchPath("AWSCore/FMBD"),
+				.headerSearchPath("AWSCore/Gabric"),
+				.headerSearchPath("AWSCore/GZIP"),
+				.headerSearchPath("AWSCore/KSReachability"),
+				.headerSearchPath("AWSCore/Logging"),
+				.headerSearchPath("AWSCore/Mantle"),
+				.headerSearchPath("AWSCore/Networking"),
+				.headerSearchPath("AWSCore/Reachability"),
+				.headerSearchPath("AWSCore/STS"),
+				.headerSearchPath("AWSCore/Serialization"),
+				.headerSearchPath("AWSCore/Service"),
+				.headerSearchPath("AWSCore/TMCache"),
+				.headerSearchPath("AWSCore/UICKeyChainStore"),
+				.headerSearchPath("AWSCore/Utility"),
+				.headerSearchPath("AWSCore/XMLDictionary"),
+				.headerSearchPath("AWSCore/XMLWriter"),
+                .headerSearchPath("SDWebImage/Core"),
+                .headerSearchPath("SDWebImage/Private")
+            ]
         ),
 		.target(
             name: "AWSS3",
@@ -40,8 +62,9 @@ let package = Package(
 			sources: [
 				"AWSS3"
 			],
-			publicHeadersPath: "AWSS3",
-
+			cSettings: [
+				.headerSearchPath("AWSS3")
+			]
         )
     ]
 )
