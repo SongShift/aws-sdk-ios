@@ -61,6 +61,7 @@ let package = Package(
 			sources: [
 				"AWSS3"
 			],
+			publicHeadersPath: "AWSS3",
 			cSettings: [
 				.headerSearchPath("AWSS3")
 			]
