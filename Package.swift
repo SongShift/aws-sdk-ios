@@ -52,8 +52,7 @@ let package = Package(
 				.headerSearchPath("AWSCore/Utility"),
 				.headerSearchPath("AWSCore/XMLDictionary"),
 				.headerSearchPath("AWSCore/XMLWriter"),
-                .headerSearchPath("SDWebImage/Core"),
-                .headerSearchPath("SDWebImage/Private")
+				.headerSearchPath("AWSCore")
             ]
         ),
 		.target(
