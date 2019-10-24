@@ -32,6 +32,7 @@ let package = Package(
 				"AWSCore/XMLDictionary",
 				"AWSCore/XMLWriter"
 			],
+			publicHeadersPath: "AWSCore",
 			cSettings: [
 				.headerSearchPath("AWSCore/Authentication"),
 				.headerSearchPath("AWSCore/Bolts"),
@@ -51,8 +52,7 @@ let package = Package(
 				.headerSearchPath("AWSCore/UICKeyChainStore"),
 				.headerSearchPath("AWSCore/Utility"),
 				.headerSearchPath("AWSCore/XMLDictionary"),
-				.headerSearchPath("AWSCore/XMLWriter"),
-				.headerSearchPath("AWSCore")
+				.headerSearchPath("AWSCore/XMLWriter")			
             ]
         ),
 		.target(
