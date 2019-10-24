@@ -952,7 +952,7 @@ static NSString *_defaultService;
 
 #pragma mark -
 
-#if TARGET_OS_IOS
+#if os(iOS) && !targetEnvironment(UIKitForMac)
 - (void)sharedPasswordWithCompletion:(void (^)(NSString *account, NSString *password, NSError *error))completion
 {
     NSString *domain = self.server.host;
