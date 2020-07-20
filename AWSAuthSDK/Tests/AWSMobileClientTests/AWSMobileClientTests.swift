@@ -8,12 +8,20 @@ import XCTest
 @testable import AWSMobileClient
 import AWSAuthCore
 import AWSCognitoIdentityProvider
+import AWSTestResources
 
 class AWSMobileClientTests: AWSMobileClientTestBase {
     
     func testSignUp() {
         let username = "testUser" + UUID().uuidString
         signUpUser(username: username)
+        adminVerifyUser(username: username)
+    }
+    
+    func testSignUpWithValidClientMetaData() {
+        let username = "testUser" + UUID().uuidString
+        signUpUser(username: username,
+                   clientMetaData: ["customKey":"cutomValue"])
         adminVerifyUser(username: username)
     }
     
@@ -65,9 +73,11 @@ class AWSMobileClientTests: AWSMobileClientTestBase {
     }
     
     func testFederatedSignInDeveloperAuthenticatedIdentities() {
+        let developerProviderName = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "developer_provider_name")
         let getOpendIdRequest = AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput()
         getOpendIdRequest?.identityPoolId = AWSMobileClientTestBase.identityPoolId
-        getOpendIdRequest?.logins = ["login.test.awsmobileclient": "test_users"]
+        getOpendIdRequest?.logins = [developerProviderName: "test_users"]
         var identityId: String?
         var token: String?
         

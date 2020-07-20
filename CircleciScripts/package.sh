@@ -32,6 +32,7 @@ if [ -f "CircleciScripts/package_sdk.sh" ]; then
     CircleciScripts/package_sdk.sh AWSCognitoIdentityProviderASF
     CircleciScripts/package_sdk.sh AWSComprehend
     CircleciScripts/package_sdk.sh AWSConnect
+    CircleciScripts/package_sdk.sh AWSConnectParticipant
     CircleciScripts/package_sdk.sh AWSCore
     CircleciScripts/package_sdk.sh AWSDynamoDB
     CircleciScripts/package_sdk.sh AWSEC2
@@ -41,6 +42,7 @@ if [ -f "CircleciScripts/package_sdk.sh" ]; then
     CircleciScripts/package_sdk.sh AWSKinesis
     CircleciScripts/package_sdk.sh AWSKinesisVideo
     CircleciScripts/package_sdk.sh AWSKinesisVideoArchivedMedia
+    CircleciScripts/package_sdk.sh AWSKinesisVideoSignaling
     CircleciScripts/package_sdk.sh AWSLambda
     CircleciScripts/package_sdk.sh AWSLex
     CircleciScripts/package_sdk.sh AWSLogs
@@ -62,6 +64,7 @@ if [ -f "CircleciScripts/package_sdk.sh" ]; then
 
     CircleciScripts/package_sdk.sh AWSAuthCore "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
     CircleciScripts/package_sdk.sh AWSAuthUI "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
+    CircleciScripts/package_sdk.sh AWSAppleSignIn "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj" "buildOnly64Bit"
     CircleciScripts/package_sdk.sh AWSFacebookSignIn "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
     CircleciScripts/package_sdk.sh AWSGoogleSignIn "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
     CircleciScripts/package_sdk.sh AWSMobileClient "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"

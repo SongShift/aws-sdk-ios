@@ -23,12 +23,26 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
         wait(for: [forgotPasswordExpection], timeout: 5)
     }
     
+    func testForgotPasswordWithValidClientMetaData() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        let forgotPasswordExpection = expectation(description: "Expecting code to be sent for forgot password.")
+        AWSMobileClient.default().forgotPassword(username: username,
+                                                 clientMetaData: ["customKey":"cutomValue"]) { (forgotPasswordResult, error) in
+            XCTAssertNotNil(error, "should get error which mentions there is no verified email or phone.")
+            forgotPasswordExpection.fulfill()
+        }
+        wait(for: [forgotPasswordExpection], timeout: 5)
+    }
+    
+    
     func testChangePassword() {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         let changePasswordExpectation = expectation(description: "Change password should be successful")
-        AWSMobileClient.default().changePassword(currentPassword: sharedPassword, proposedPassword: "NewPassword123!@") { (error) in
+        AWSMobileClient.default().changePassword(currentPassword: AWSMobileClientTestBase.sharedPassword,
+                                                 proposedPassword: "NewPassword123!@") { (error) in
             XCTAssertNil(error)
             changePasswordExpectation.fulfill()
         }
@@ -55,9 +69,11 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
     func testPasswordResetChallenge() {
         let username = "testUser" + UUID().uuidString
         let tempPassword = "tempPassword" + UUID().uuidString
-        adminCreateUser(username: username, temporaryPassword: tempPassword)
+        adminCreateUser(username: username,
+                        temporaryPassword: tempPassword,
+                        userAttributes: ["email": AWSMobileClientTestBase.sharedEmail])
         signIn(username: username, password: tempPassword, verifySignState: .newPasswordRequired)
-        confirmSign(challengeResponse: sharedPassword, userAttributes: ["email": AWSMobileClientTestBase.sharedEmail])
+        confirmSign(challengeResponse: AWSMobileClientTestBase.sharedPassword)
     }
 
 }
