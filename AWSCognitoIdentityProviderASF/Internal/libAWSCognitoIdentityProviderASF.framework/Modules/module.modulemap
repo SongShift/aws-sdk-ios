@@ -1,6 +1,0 @@
-framework module AWSSimFramework {
-  umbrella header "AWSSimFramework.h"
-
-  export *
-  module * { export * }
-}
