@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
                      :tag => '2.14.2'}
   s.requires_arc = true
   s.public_header_files = 'AWSCognitoIdentityProviderASF/*.h'
-  s.source_files = 'AWSCognitoIdentityProviderASF/**/*.{h,m,c}'
+  s.source_files = 'AWSCognitoIdentityProviderASF/*.{h,m,c}'
 end
