@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description  = 'Amazon Cognito Identity Provider ASF provides the information necessary to support adaptive authentication'
 
   s.homepage     = 'http://aws.amazon.com/mobile/sdk'
-  s.frameworks   = 'CoreTelephony'
+  s.frameworks   = 'CoreTelephony', 'Security', 'UIKit'
   s.license      = 'Apache License, Version 2.0'
   s.author       = { 'Amazon Web Services' => 'amazonwebservices' }
   s.platform     = :ios, '8.0'
